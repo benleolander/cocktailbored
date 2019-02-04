@@ -9,13 +9,13 @@ const cocktailsController = require('./controllers/cocktails')
 const app = express()
 
 app.use(express.static(`${__dirname}/dist`))
-// app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
-mongoose.connect('mongodb://localhost/cocktailbored')
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(bodyParser.json())
 
 app.get('/api/cocktails', cocktailsController.index)
 app.post('/api/cocktails', cocktailsController.create)
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 app.listen(process.env.PORT, () => console.log(`Express is listening on Port ${process.env.PORT}`))

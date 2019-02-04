@@ -13,14 +13,10 @@ class CocktailsIndex extends React.Component {
 
   componentDidMount() {
     axios.get('/api/cocktails')
-      .then(res => {
-        console.log('Incoming State Data:', res.data)
-        this.setState({ cocktails: res.data })
-      })
+      .then(res => this.setState({ cocktails: res.data }))
   }
 
   render() {
-    console.log('Rendering Cocktail index')
     if(!this.state.cocktails) return null
     return (
       <section className="section">

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 
 import CocktailsIndex from './components/cocktails/CocktailsIndex'
 import Home from './components/Home'
@@ -14,18 +14,13 @@ class App extends React.Component{
     this.state = {}
   }
 
-  // componentDidMount() {
-  //   axios.get('/api/cocktails')
-  //     .then(res => {
-  //       console.log('Incoming State Data:', res.data)
-  //       this.setState({ cocktails: res.data })
-  //     })
-  // }
-
   render(){
     return(
       <BrowserRouter>
         <main>
+          <Link to='/cocktails'>
+            <h2>Show Cocktails</h2>
+          </Link>
           <Switch>
             <Route path="/cocktails" component={CocktailsIndex} />
             <Route path="/" component={Home} />
