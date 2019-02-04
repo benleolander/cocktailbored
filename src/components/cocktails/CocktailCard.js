@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CocktailCard = ({ _id, name, image, origin, ingredients }) => {
-  console.log( _id, name, image, origin, ingredients )
+const CocktailCard = ({ _id, name, image, origin }) => {
   return (
     <div className="card">
       <Link to={`/cocktails/${_id}`}>
