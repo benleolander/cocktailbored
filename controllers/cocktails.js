@@ -3,7 +3,7 @@ const Cocktail = require('../models/cocktail')
 function indexRoute(req, res) {
   Cocktail
     .find()
-    .then(cocktail => res.status(201).json(cocktail))
+    .then(cocktails => res.status(200).json(cocktails))
     .catch(err => res.status(422).json(err))
 }
 
